@@ -1,1 +1,62 @@
-sdcdac
+s = int(input())
+while s != 35:
+    if s > 35:
+        print('Загаданное число меньше')
+    else:
+        print('Загаданное число больше')
+print('Вы угадали число')
+
+fio = input('ФИО?')
+age = int(input('Возраст?'))
+sex = input('Пол?')
+if age < 18:
+    print('Проход запрещён')
+else:
+    print('Проход разрешён')
+
+s = int(input())
+while s != 35:
+    if s > 35:
+        print('Загаданное число меньше')
+    else:
+        print('Загаданное число больше')
+    s = int(input())
+print('Вы угадали число')
+
+# Строка - вход в нейрон, столбец - сам нейрон
+
+class Triangle():
+    def __init__(self, x1, y1, x2, y2, x3, y3):
+        self.x1 = x1
+        self.x2 = x2
+        self.x3 = x3
+        self.y1 = y1
+        self.y2 = y2
+        self.y3 = y3
+
+    def perimetr(self):
+        a = ((self.x2 - self.x1) ** 2 + (self.y2 - self.y1) ** 2) ** 0.5
+        b = ((self.x3 - self.x2) ** 2 + (self.y3 - self.y2) ** 2) ** 0.5
+        c = ((self.x1 - self.x3) ** 2 + (self.y1 - self.y3) ** 2) ** 0.5
+        self.a = a
+        self.b = b
+        self.c = c
+        p = a + b + c
+        return p
+
+    def plosh(self):
+        p = self.perimetr()
+        s = (0.5*p*(0.5*p-self.a)*(0.5*p-self.b)*(0.5*p-self.c))**0.5
+        return s
+
+
+x1 = int(input())
+y1 = int(input())
+x2 = int(input())
+y2 = int(input())
+x3 = int(input())
+y3 = int(input())
+
+tr = Triangle(x1, y1, x2, y2, x3, y3)
+print(tr.perimetr())
+print(tr.plosh())
