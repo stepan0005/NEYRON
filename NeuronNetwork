@@ -1,0 +1,38 @@
+import scipy.special
+import numpy
+class NeuralNetwork:
+    def __init__(self, inputnodes, hiddennodes, outputnodes, learninggrate):
+        self.inodes = inputnodes
+        self.hnodes = hiddennodes
+        self.onodes = outputnodes
+
+        self.lr = learninggrate
+        
+        # Матрицы весовых коэффицентов связей wih (между входным и скрытым узлом)
+        # и who (между скрытым и выходным)
+        # Весовые коэффиценты  связей между узлом i и узлом j следующего слоя обозначены как w_i_j:
+        # w11 w21
+        # w12 w22
+        
+        self.wih =(numpy.random.normal(0.0, pow(self.hnodes, -0.5), (self.hnodes, self.inodes)))
+        self.who = (numpy.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes)))
+
+        
+    def train(self):
+        pass
+
+    def query(self):
+        hidden_inputs=numpy.dot(self.wih, inputs)
+        self.activation = lambda x: scipy.special.expit(x)
+        hidden_outputs = self.activation(hidden_inputs)
+        final_inputs = numpy.dot(self.who, hidden_outputs)
+        final_outputs = self.activation(final_inputs)
+
+
+input_nodes = 3
+hidden_nodes = 3
+output_nodes = 3
+
+learning_rate = 0.3
+
+n = NeuralNetwork(input_nodes, hidden_nodes, output_nodes, learning_rate)
